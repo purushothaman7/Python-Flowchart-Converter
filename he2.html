@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>flowchart.js · Playground</title>
+        <style type="text/css">
+          .end-element { fill :"white"; }
+        </style>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://flowchart.js.org/flowchart-latest.js"></script>
+        <!-- <script src="../release/flowchart.min.js"></script> -->
+        <script>
+
+            window.onload = function () {
+                var btn = document.getElementById("run"),
+                    cd = document.getElementById("code"),
+                    chart;
+
+                (btn.onclick = function () {
+                    var code = cd.value;
+
+                    if (chart) {
+                      chart.clean();
+                    }
+
+                    chart = flowchart.parse(code);
+                    chart.drawSVG('canvas', {
+                      // 'x': 30,
+                      // 'y': 50,
+                      'line-width': 3,
+                      'maxWidth': 3,//ensures the flowcharts fits within a certian width
+                      'line-length': 50,
+                      'text-margin': 10,
+                      'font-size': 14,
+                      'font': 'normal',
+                      'font-family': 'Helvetica',
+                      'font-weight': 'normal',
+                      'font-color': 'black',
+                      'line-color': 'black',
+                      'element-color': 'black',
+                      'fill': 'white',
+                      'yes-text': 'yes',
+                      'no-text': 'no',
+                      'arrow-end': 'block',
+                      'scale': 1.5,
+                      'symbols': {
+                        'start': {
+                          'font-color': 'black',
+                          'element-color': 'black',
+                          'fill': 'white'
+                        },
+                        'end':{
+                          'class': 'end-element'
+                        }
+                      },
+                      'flowstate' : {
+                        'past' : { 'fill' :  'white', 'font-size' : 12},
+                        'current' : {'fill' : 'white', 'font-color' : 'red', 'font-weight' : 'bold'},
+                        'future' : { 'fill' :  'white'},
+                        'request' : { 'fill' :  'white'},
+                        'invalid': {'fill' :  'white'},
+                        'approved' : { 'fill' :  'white', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
+                        'rejected' : { 'fill' :  'white', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
+                      }
+                    });
+
+                    $('[id^=sub1]').click(function(){
+                      alert('info here');
+                    });
+                })();
+
+            };
+
+            function myFunction(event, node) {
+              console.log("You just clicked this node:", node);
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div><textarea id="code" style="width: 100%;" rows="11">
+          st3=>start: start foo
+          io5=>inputoutput: input: a, b
+          cond9=>condition: if a
+          sub13=>subroutine: print('a')
+          io34=>inputoutput: output:  (a + b)
+          e32=>end: end function return
+          cond18=>operation: print('b') while  i in range(3)
+          
+          st3->io5
+          io5->cond9
+          cond9(yes)->sub13
+          sub13->io34
+          io34->e32
+          cond9(no)->cond18
+          cond18->io34
+</textarea></div>
+        <div><button id="run" type="button">Run</button></div>
+        <div id="canvas"></div>
+    </body>
+</html>
