@@ -19,6 +19,20 @@ This tool can convert the PYTHON code into Flowchart for better understanding.
 ![](https://github.com/purushothaman7/Python-Flowchart-Converter/blob/main/Screenshots/System%20Architecture.jpeg)
 
 ```diff
-NOTE : You should install "nbformat" and "pyflowchart" using 'pip' command to run the project.
-       All the above folders must be in same folder.
-```   
+Tutorial:
+      1.You should install "nbformat" and "pyflowchart" using 'pip' command to run the project.
+      2.All the above files(file.py , samp.py , Flowchart.html , test.txt) must be in same folder.
+      3.Open Folder in Visual Studio and open file,samp files.
+      4.Open Flowchart.html in chrome.
+      5.Inside 'open' paste the location of samp program.
+      6.In 'f=open' paste the location of test file.
+      7.Run the Program without debugging.
+      8.Copy the output given by Visual Studio.
+      9.Paste that into HTML chrome page.
+      10.You can see the flowchart down there.
+      
+   ```   
+#### Credits:
+##### Thanks to my teammates
+      Ragavendar K
+      Sharvesh R
