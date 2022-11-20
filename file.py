@@ -8,4 +8,5 @@ data=fc.flowchart()
 
 f = open(r"F:\project inc\main project file\temp\test.txt", "w")
 f.write(data)
+print(data)
 f.close()
