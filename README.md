@@ -15,5 +15,10 @@ This tool can convert the PYTHON code into Flowchart for better understanding.
 ##### It is level 1 GUI that we created for this project using QT designer tool. 
 ![](https://github.com/purushothaman7/Python-Flowchart-Converter/blob/main/Screenshots/GUI%20screenshot%201.jpg)
 ![](https://github.com/purushothaman7/Python-Flowchart-Converter/blob/main/Screenshots/GUI%20screenshot%202.jpg)
+#### System Architecture:
+![](https://github.com/purushothaman7/Python-Flowchart-Converter/blob/main/Screenshots/System%20Architecture.jpeg)
 
 ```diff
+NOTE : You should install "nbformat" and "pyflowchart" using 'pip' command to run the project.
+       All the above folders must be in same folder.
+```   
